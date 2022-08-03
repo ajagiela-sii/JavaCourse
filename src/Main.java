@@ -39,7 +39,7 @@ public class Main {
                 System.out.println("Sorry you didn't guess the number, the answer was: " + numberToGuess);
             }
         } catch (InputMismatchException exception) {
-            System.out.println("Not a integer");
+            System.out.println("Not an integer");
         }
     }
 }
