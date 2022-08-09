@@ -1,6 +1,4 @@
-import java.util.InputMismatchException;
 import java.util.Random;
-import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
@@ -8,12 +6,12 @@ public class Main {
         boolean guessed = false;
         int numberOfTries = 5;
         int numberToGuess = new Random().nextInt(100);
-        Scanner sc = new Scanner(System.in);
 
         System.out.println("Start guessing the integer from 0 to 99");
-        try {
-            while (numberOfTries > 0) {
-                int enteredNumber = sc.nextInt();
+
+        while (numberOfTries > 0) {
+            int enteredNumber = UserInputHandler.getIntFromUser();
+            if (enteredNumber >= 0 && enteredNumber < 100) {
                 numberOfTries--;
 
                 if (enteredNumber == numberToGuess) {
@@ -33,13 +31,14 @@ public class Main {
                 if (numberOfTries != 0) {
                     System.out.println("Please try again");
                 }
+            } else {
+                System.out.println("Enter number from 0 to 99 range");
             }
-
-            if (!guessed) {
-                System.out.println("Sorry you didn't guess the number, the answer was: " + numberToGuess);
-            }
-        } catch (InputMismatchException exception) {
-            System.out.println("Not an integer");
         }
+
+        if (!guessed) {
+            System.out.println("Sorry you didn't guess the number, the answer was: " + numberToGuess);
+        }
+
     }
 }
