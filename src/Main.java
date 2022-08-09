@@ -32,7 +32,7 @@ public class Main {
                     System.out.println("Please try again");
                 }
             } else {
-                System.out.println("Enter number from 0 to 99 range");
+                System.out.println("Enter integer from 0 to 99 range");
             }
         }
 
